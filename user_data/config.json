@@ -61,9 +61,12 @@
             "enableRateLimit": true,
             "headers": {
                 "x-simulated-trading": "1"
-            },
-            "options": {
-                "fetchCurrencies": false
+            }
+        },
+        "ccxt_async_config": {
+            "enableRateLimit": true,
+            "headers": {
+                "x-simulated-trading": "1"
             }
         },
         "pair_whitelist": [
