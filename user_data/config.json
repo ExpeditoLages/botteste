@@ -58,7 +58,10 @@
         "secret": "F41CF69E699C8A74A95D89AAA3AB4CCB",
         "password": "@THMPV77d6f",
         "ccxt_config": {
-            "enableRateLimit": true
+            "enableRateLimit": true,
+            "headers": {
+                "x-simulated-trading": "1"
+            }
         },
         "pair_whitelist": [
             "SOL/USDT:USDT"
