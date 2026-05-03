@@ -5,7 +5,7 @@
     "stake_amount": "unlimited",
     "tradable_balance_ratio": 0.99,
     "fiat_display_currency": "USD",
-    "dry_run": false,
+    "dry_run": true,
     "dry_run_wallet": 1000,
     "timeframe": "5m",
     "trading_mode": "futures",
@@ -54,20 +54,11 @@
     ],
     "exchange": {
         "name": "okx",
-        "key": "6443d352-aade-4a0d-942e-7806bbacda06",
-        "secret": "F41CF69E699C8A74A95D89AAA3AB4CCB",
-        "password": "@THMPV77d6f",
+        "key": "",
+        "secret": "",
+        "password": "",
         "ccxt_config": {
-            "enableRateLimit": true,
-            "headers": {
-                "x-simulated-trading": "1"
-            }
-        },
-        "ccxt_async_config": {
-            "enableRateLimit": true,
-            "headers": {
-                "x-simulated-trading": "1"
-            }
+            "enableRateLimit": true
         },
         "pair_whitelist": [
             "SOL/USDT:USDT"
