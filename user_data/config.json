@@ -87,7 +87,7 @@
     "bot_name": "freqtrade_sol_okx",
     "db_url": "sqlite:///tradesv3.sqlite",
     "initial_state": "running",
-    "strategy": "RsiquiV5_OKX",
+    "strategy": "RsiquiV5",
     "strategy_path": "user_data/strategies/",
     "dataformat_ohlcv": "feather",
     "dataformat_trades": "feather"
