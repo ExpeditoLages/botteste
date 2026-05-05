@@ -2,7 +2,7 @@
     "$schema": "https://schema.freqtrade.io/schema.json",
     "max_open_trades": 1,
     "stake_currency": "USDT",
-    "stake_amount": "unlimited",
+    "stake_amount": 100,
     "tradable_balance_ratio": 0.99,
     "fiat_display_currency": "USD",
     "dry_run": true,
@@ -61,7 +61,8 @@
             "enableRateLimit": true
         },
         "pair_whitelist": [
-            "SOL/USDT:USDT"
+            "SOL/USDT:USDT",
+            "AVAX/USDT:USDT"
         ],
         "pair_blacklist": [
             "(BNB|BUSD|USDC)/.*"

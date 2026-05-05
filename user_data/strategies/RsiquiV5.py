@@ -8,7 +8,7 @@ from freqtrade.persistence import Trade
 from freqtrade.strategy.interface import IStrategy
 from freqtrade.strategy import (IStrategy, DecimalParameter, IntParameter, CategoricalParameter, BooleanParameter)
 
-class RsiquiV5_OKX(IStrategy):
+class RsiquiV5(IStrategy):
     INTERFACE_VERSION = 3
 
     can_short = True
@@ -36,10 +36,10 @@ class RsiquiV5_OKX(IStrategy):
 
     stoploss = -0.273
 
-    trailing_stop = False
-    trailing_stop_positive = None
-    trailing_stop_positive_offset = 0.0
-    trailing_only_offset_is_reached = False
+    trailing_stop = False  # value loaded from strategy
+    trailing_stop_positive = None  # value loaded from strategy
+    trailing_stop_positive_offset = 0.0  # value loaded from strategy
+    trailing_only_offset_is_reached = False  # value loaded from strategy
 
     max_open_trades = -1
 
@@ -107,4 +107,4 @@ class RsiquiV5_OKX(IStrategy):
         return dataframe
 
     def leverage(self, pair: str, current_time: datetime, current_rate: float, proposed_leverage: float, max_leverage: float, side: str, **kwargs) -> float:
-        return 5.0
+        return 10

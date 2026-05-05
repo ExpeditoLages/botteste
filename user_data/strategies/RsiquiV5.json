@@ -1,0 +1,34 @@
+{
+    "strategy_name": "RsiquiV5",
+    "params": {
+        "trailing": {
+            "trailing_stop": false,
+            "trailing_stop_positive": null,
+            "trailing_stop_positive_offset": 0.0,
+            "trailing_only_offset_is_reached": false
+        },
+        "max_open_trades": {
+            "max_open_trades": 3
+        },
+        "buy": {
+            "rsi_entry_long": 90,
+            "rsi_entry_short": 5,
+            "window": 37
+        },
+        "sell": {
+            "rsi_exit_long": 35,
+            "rsi_exit_short": 73
+        },
+        "roi": {
+            "0": 0.085,
+            "37": 0.049,
+            "79": 0.034,
+            "194": 0
+        },
+        "stoploss": {
+            "stoploss": -0.053
+        }
+    },
+    "ft_stratparam_v": 1,
+    "export_time": "2026-05-01 12:30:00.000000+00:00"
+}
