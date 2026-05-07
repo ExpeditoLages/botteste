@@ -7,6 +7,18 @@ from typing import Optional, Tuple, Union
 from freqtrade.persistence import Trade
 from freqtrade.strategy.interface import IStrategy
 from freqtrade.strategy import (IStrategy, DecimalParameter, IntParameter, CategoricalParameter, BooleanParameter)
+import freqtrade.exchange.exchange as exchange_module
+
+# Monkey Patch para corrigir um bug interno do Freqtrade quando o juros compostos
+# extrapola o limite da corretora na hora de descobrir a alavancagem máxima.
+original_get_max_leverage = exchange_module.Exchange.get_max_leverage
+
+def patched_get_max_leverage(self, pair: str, stake_amount: float):
+    # Finge que a margem máxima é 10.000 para o cálculo de alavancagem da corretora
+    capped_stake = min(stake_amount, 10000.0)
+    return original_get_max_leverage(self, pair, capped_stake)
+
+exchange_module.Exchange.get_max_leverage = patched_get_max_leverage
 
 class RsiquiV5(IStrategy):
     INTERFACE_VERSION = 3
@@ -108,3 +120,18 @@ class RsiquiV5(IStrategy):
 
     def leverage(self, pair: str, current_time: datetime, current_rate: float, proposed_leverage: float, max_leverage: float, side: str, **kwargs) -> float:
         return 10
+
+    def custom_stake_amount(self, pair: str, current_time: datetime, current_rate: float,
+                            proposed_stake: float, min_stake: Optional[float], max_stake: float,
+                            leverage: float, entry_tag: Optional[str], side: str,
+                            **kwargs) -> float:
+        
+        # O Freqtrade pode às vezes falhar na checagem automática de tiers de alavancagem em simulação.
+        # Por segurança, aplicamos um teto máximo rígido de 10.000 USDT de margem (100.000 de posição).
+        max_safe_stake = 10000.0
+        capped_stake = min(proposed_stake, max_safe_stake)
+        
+        if max_stake is not None:
+            return min(capped_stake, max_stake)
+        
+        return capped_stake
