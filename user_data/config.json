@@ -1,8 +1,8 @@
 {
     "$schema": "https://schema.freqtrade.io/schema.json",
-    "max_open_trades": 1,
+    "max_open_trades": 5,
     "stake_currency": "USDT",
-    "stake_amount": 100,
+    "stake_amount": 20,
     "tradable_balance_ratio": 0.99,
     "fiat_display_currency": "USD",
     "dry_run": true,
@@ -11,12 +11,9 @@
     "trading_mode": "futures",
     "margin_mode": "isolated",
     "minimal_roi": {
-        "0": 0.223,
-        "34": 0.082,
-        "82": 0.033,
-        "109": 0
+        "0": 0.1
     },
-    "stoploss": -0.273,
+    "stoploss": -0.10,
     "entry_pricing": {
         "price_side": "same",
         "use_order_book": true,
@@ -62,7 +59,10 @@
         },
         "pair_whitelist": [
             "SOL/USDT:USDT",
-            "AVAX/USDT:USDT"
+            "AVAX/USDT:USDT",
+            "INJ/USDT:USDT",
+            "FIL/USDT:USDT",
+            "NEAR/USDT:USDT"
         ],
         "pair_blacklist": [
             "(BNB|BUSD|USDC)/.*"
