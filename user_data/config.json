@@ -1,19 +1,19 @@
 {
     "$schema": "https://schema.freqtrade.io/schema.json",
-    "max_open_trades": 5,
+    "max_open_trades": 2,
     "stake_currency": "USDT",
     "stake_amount": "unlimited",
     "tradable_balance_ratio": 0.99,
     "fiat_display_currency": "USD",
     "dry_run": true,
-    "dry_run_wallet": 1000,
+    "dry_run_wallet": 150,
     "timeframe": "5m",
     "trading_mode": "futures",
     "margin_mode": "isolated",
     "minimal_roi": {
         "0": 0.1
     },
-    "stoploss": -0.10,
+    "stoploss": -0.1,
     "entry_pricing": {
         "price_side": "same",
         "use_order_book": true,
@@ -51,21 +51,21 @@
     ],
     "exchange": {
         "name": "okx",
-        "key": "",
-        "secret": "",
-        "password": "",
+        "key": "6443d352-aade-4a0d-942e-7806bbacda06",
+        "secret": "F41CF69E699C8A74A95D89AAA3AB4CCB",
+        "password": "@THMPV77d6f",
         "ccxt_config": {
-            "enableRateLimit": true
+            "enableRateLimit": true,
+            "headers": {
+                "x-simulated-trading": "1"
+            }
         },
         "pair_whitelist": [
             "SOL/USDT:USDT",
-            "AVAX/USDT:USDT",
-            "INJ/USDT:USDT",
-            "FIL/USDT:USDT",
-            "NEAR/USDT:USDT"
+            "AVAX/USDT:USDT"
         ],
         "pair_blacklist": [
-            "(BNB|BUSD|USDC)/.*"
+            "PEPE/USDT:USDT"
         ]
     },
     "telegram": {
@@ -73,18 +73,7 @@
         "token": "8705874844:AAF5AHckfKQfQeylk6z25ZIWm0pk_WxZLR8",
         "chat_id": "1434284578"
     },
-    "api_server": {
-        "enabled": true,
-        "listen_ip_address": "0.0.0.0",
-        "listen_port": 8080,
-        "verbosity": "error",
-        "enable_openapi": false,
-        "jwt_secret_key": "YOUR_JWT_SECRET_KEY_HERE",
-        "CORS_origins": [],
-        "username": "freqtrader",
-        "password": "SUPER_SECRET_PASSWORD"
-    },
-    "bot_name": "freqtrade_sol_okx",
+    "bot_name": "Infinity_Scalper_v1_Pro",
     "db_url": "sqlite:///tradesv3.sqlite",
     "initial_state": "running",
     "strategy": "RsiquiV5",
