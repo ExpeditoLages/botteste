@@ -1,4 +1,5 @@
 {
+    "$schema": "https://schema.freqtrade.io/schema.json",
     "max_open_trades": 3,
     "stake_currency": "USDT",
     "stake_amount": "unlimited",
@@ -10,21 +11,38 @@
     "trading_mode": "futures",
     "margin_mode": "isolated",
     "minimal_roi": {
-        "0": 0.074,
-        "23": 0.046,
-        "48": 0.018,
-        "74": 0
+        "0": 0.1
     },
-    "stoploss": -0.202,
+    "stoploss": -0.10,
     "entry_pricing": {
         "price_side": "same",
         "use_order_book": true,
-        "order_book_top": 1
+        "order_book_top": 1,
+        "price_last_balance": 0.0,
+        "check_depth_of_market": {
+            "enabled": false,
+            "bids_to_ask_delta": 1
+        }
     },
     "exit_pricing": {
         "price_side": "same",
         "use_order_book": true,
-        "order_book_top": 1
+        "order_book_top": 1,
+        "price_last_balance": 0.0
+    },
+    "order_types": {
+        "entry": "limit",
+        "exit": "limit",
+        "emergency_exit": "market",
+        "force_exit": "market",
+        "force_entry": "market",
+        "stoploss": "market",
+        "stoploss_on_exchange": false,
+        "stoploss_price_type": "last"
+    },
+    "order_time_in_force": {
+        "entry": "GTC",
+        "exit": "GTC"
     },
     "pairlists": [
         {
@@ -44,8 +62,11 @@
         },
         "pair_whitelist": [
             "NEAR/USDT:USDT",
-            "DOT/USDT:USDT",
-            "SUI/USDT:USDT"
+            "SUI/USDT:USDT",
+            "DOT/USDT:USDT"
+        ],
+        "pair_blacklist": [
+            "PEPE/USDT:USDT"
         ]
     },
     "telegram": {
@@ -54,7 +75,10 @@
         "chat_id": "1434284578"
     },
     "bot_name": "Infinity_Scalper_v1_Pro",
+    "db_url": "sqlite:///tradesv3.sqlite",
     "initial_state": "running",
     "strategy": "RsiquiV5",
-    "strategy_path": "user_data/strategies/"
+    "strategy_path": "user_data/strategies/",
+    "dataformat_ohlcv": "feather",
+    "dataformat_trades": "feather"
 }
